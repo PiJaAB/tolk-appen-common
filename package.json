@@ -14,11 +14,11 @@
     "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
+    "@types/identicon.js": "^2.3.1",
     "identicon.js": "^2.3.3"
   },
   "devDependencies": {
     "@types/child-process-promise": "^2.2.1",
-    "@types/identicon.js": "^2.3.1",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.34",
     "@types/tough-cookie": "^4.0.0",
