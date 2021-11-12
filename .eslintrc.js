@@ -9,7 +9,7 @@ module.exports = {
     'plugin:import/typescript',
   ],
   plugins: ['@typescript-eslint', 'import', 'prettier'],
-  ignorePatterns: ['dist/*'],
+  ignorePatterns: ['dist/*', '/noReact.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.eslint.json',
