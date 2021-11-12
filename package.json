@@ -1,6 +1,6 @@
 {
   "name": "tolk-appen-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "main": "dist/index.js",
   "license": "UNLICENSED",
@@ -13,10 +13,14 @@
     "lint:tsc": "NODE_ENV=production tsc --noEmit --pretty",
     "deploy": "node scripts/deploy.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "identicon.js": "^2.3.3"
+  },
   "devDependencies": {
     "@types/child-process-promise": "^2.2.1",
+    "@types/identicon.js": "^2.3.1",
     "@types/node": "^15.0.1",
+    "@types/react": "^17.0.34",
     "@types/tough-cookie": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
@@ -29,7 +33,11 @@
     "execa": "^5.1.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
+    "react": "^17.0.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
   }
 }
