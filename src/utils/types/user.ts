@@ -17,5 +17,6 @@ export interface PrivateUser extends Omit<PublicUser, 'private'> {
     tempPassword?: boolean;
     disabled: boolean;
     deviceTokens?: string[];
+    subscribedTopics?: string[];
   };
 }

@@ -8,6 +8,12 @@
  * http://www.opensource.org/licenses/bsd-license.php
  */
 
+let Buffer: typeof global.Buffer | undefined;
+
+function getBuffer(): typeof global.Buffer | undefined {
+  return Buffer == null ? global.Buffer : Buffer;
+}
+
 export interface Options {
   background?: [number, number, number, number];
   size?: number;
@@ -90,22 +96,12 @@ export class Svg {
     const bg = this.background;
     const stroke = this.size * 0.005;
 
-    xml =
-      `${"<svg xmlns='http://www.w3.org/2000/svg' width='"}${
-        this.size
-      }' height='${this.size}'` +
-      ` style='background-color:${bg};'>` +
-      `<g style='fill:${fg}; stroke:${fg}; stroke-width:${stroke};'>`;
+    xml = `<svg xmlns="http://www.w3.org/2000/svg" width="${this.size}" height="${this.size}" viewBox="0 0 ${this.size} ${this.size}" style="background-color:${bg};"><g style="fill:${fg}; stroke:${fg}; stroke-width:${stroke};">`;
 
     for (i = 0; i < this.rectangles.length; i++) {
       rect = this.rectangles[i];
       if (rect.color !== bg) {
-        xml +=
-          `${"<rect x='"}${rect.x}'` +
-          ` y='${rect.y}'` +
-          ` width='${rect.w}'` +
-          ` height='${rect.h}'` +
-          `/>`;
+        xml += `<rect x="${rect.x}" y="${rect.y}" width="${rect.w}" height="${rect.h}"/>`;
       }
     }
     xml += '</g></svg>';
@@ -117,8 +113,9 @@ export class Svg {
     if (typeof btoa === 'function') {
       return btoa(this.getDump());
     }
-    if (typeof Buffer !== 'undefined') {
-      return Buffer.from(this.getDump(), 'binary').toString('base64');
+    const Buf = getBuffer();
+    if (typeof Buf !== 'undefined') {
+      return Buf.from(this.getDump(), 'binary').toString('base64');
     }
     throw new Error('Cannot generate base64 output');
   }
@@ -243,4 +240,8 @@ export default class Identicon {
     }
     return this.render().getBase64();
   }
+}
+
+export function setBufferClass(bufferClass: typeof global.Buffer): void {
+  Buffer = bufferClass;
 }
