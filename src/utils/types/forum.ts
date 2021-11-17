@@ -1,32 +1,10 @@
-export interface PublicUser {
-  interpreterNumber?: string;
-  name?: string;
-  userLanguages?: string[];
-  userType?: string[];
-  username?: string;
-  role?: string;
-}
-
-export interface PrivateUser extends PublicUser {
-  private: {
-    email?: string;
-    emailVerified: boolean;
-    phoneNumber?: string;
-    accessFlags?: Partial<Record<string, boolean>> | null;
-    tempPassword?: boolean;
-    disabled: boolean;
-  };
-}
-
 export type Category = {
   name: string;
   description: string;
   weight: number;
 };
 
-export type Categories = {
-  [key: string]: Category;
-};
+export type Categories = Record<string, Category>;
 
 export interface G_Post<Timestamp, PublicUserRef> {
   author: PublicUserRef;
