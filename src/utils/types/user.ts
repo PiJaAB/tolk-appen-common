@@ -1,5 +1,6 @@
 export interface PublicUser {
   interpreterNumber?: string;
+  profilePicture?: string | null;
   name?: string;
   userLanguages?: string[];
   userType?: string[];
