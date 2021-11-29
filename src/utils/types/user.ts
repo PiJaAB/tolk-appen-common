@@ -6,7 +6,7 @@ export interface PublicUser {
   userType?: string[];
   username?: string;
   role?: string;
-  private: never;
+  private?: never;
 }
 
 export interface PrivateUser extends Omit<PublicUser, 'private'> {
