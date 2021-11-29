@@ -19,5 +19,6 @@ export interface PrivateUser extends Omit<PublicUser, 'private'> {
     disabled: boolean;
     deviceTokens?: string[];
     subscribedTopics?: string[];
+    notificationKey?: string | null;
   };
 }
