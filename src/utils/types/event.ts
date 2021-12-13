@@ -2,6 +2,7 @@ type BaseEvent<T, Timestamp> = {
   type: T;
   title: string;
   description: string;
+  externalUrl?: string | null;
 } & (
   | {
       published: true;
