@@ -11,7 +11,7 @@ export interface G_Post<Timestamp, PublicUserRef> {
   created: Timestamp;
   modified: Timestamp | null;
   lastContent: Timestamp;
-  category: string;
+  category: string | null;
   title: string;
   text: string;
   imageUrl?: string;
