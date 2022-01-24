@@ -7,7 +7,7 @@ export type Category = {
 export type Categories = Record<string, Category>;
 
 export interface G_Post<Timestamp, PublicUserRef> {
-  author: PublicUserRef;
+  author: PublicUserRef | null;
   created: Timestamp;
   modified: Timestamp | null;
   lastContent: Timestamp;
@@ -18,6 +18,7 @@ export interface G_Post<Timestamp, PublicUserRef> {
   commentCount: number;
   replyCount: number;
   likes: number;
+  removed?: boolean;
 }
 
 export interface G_Comment<Timestamp, PublicUserRef> {
@@ -25,16 +26,18 @@ export interface G_Comment<Timestamp, PublicUserRef> {
   modified: Timestamp | null;
   lastContent: Timestamp;
   text: string;
-  author: PublicUserRef;
+  author: PublicUserRef | null;
   replyCount: number;
   likes: number;
+  removed?: boolean;
 }
 
 export interface G_Reply<Timestamp, PublicUserRef, ReplyRef> {
   created: Timestamp;
   modified: Timestamp | null;
   text: string;
-  author: PublicUserRef;
+  author: PublicUserRef | null;
   respondingTo?: ReplyRef | null;
   likes: number;
+  removed?: boolean;
 }
