@@ -7,6 +7,7 @@ export interface PublicUser {
   username?: string;
   role?: string;
   private?: never;
+  onboardingCompleted?: boolean;
 }
 
 export interface PrivateUser extends Omit<PublicUser, 'private'> {
