@@ -3,6 +3,7 @@ type BaseEvent<T, Timestamp> = {
   title: string;
   description: string;
   externalUrl?: string | null;
+  imagePath?: string | null;
 } & (
   | {
       published: true;

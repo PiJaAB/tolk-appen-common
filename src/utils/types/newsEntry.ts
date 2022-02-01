@@ -4,4 +4,5 @@ export type G_NewsEntry<Timestamp> = {
   publishedAt: Timestamp | null;
   published: boolean;
   text: string;
+  imagePath?: string | null;
 };
