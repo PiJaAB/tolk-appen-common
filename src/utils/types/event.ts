@@ -1,6 +1,7 @@
 type BaseEvent<T, Timestamp> = {
   type: T;
   title: string;
+  organizer: string;
   description: string;
   externalUrl?: string | null;
   imagePath?: string | null;
