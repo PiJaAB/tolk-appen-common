@@ -1,3 +1,5 @@
+import { Tag } from './tag';
+
 type BaseEvent<T, Timestamp> = {
   type: T;
   title: string;
@@ -5,6 +7,7 @@ type BaseEvent<T, Timestamp> = {
   description: string;
   externalUrl?: string | null;
   imagePath?: string | null;
+  tags?: Array<Tag>;
 } & (
   | {
       published: true;
