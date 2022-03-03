@@ -7,5 +7,5 @@ export type G_NewsEntry<Timestamp> = {
   published: boolean;
   text: string;
   imagePath?: string | null;
-  tags?: Array<Tag>;
+  tags?: Array<string>;
 };

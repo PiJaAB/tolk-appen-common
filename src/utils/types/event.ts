@@ -7,7 +7,7 @@ type BaseEvent<T, Timestamp> = {
   description: string;
   externalUrl?: string | null;
   imagePath?: string | null;
-  tags?: Array<Tag>;
+  tags?: Array<string>;
 } & (
   | {
       published: true;
