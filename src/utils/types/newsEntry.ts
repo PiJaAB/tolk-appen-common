@@ -1,5 +1,3 @@
-import { Tag } from "./tag";
-
 export type G_NewsEntry<Timestamp> = {
   title: string;
   notificationSent: boolean;

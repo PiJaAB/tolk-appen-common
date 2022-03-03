@@ -1,5 +1,3 @@
-import { Tag } from './tag';
-
 type BaseEvent<T, Timestamp> = {
   type: T;
   title: string;
