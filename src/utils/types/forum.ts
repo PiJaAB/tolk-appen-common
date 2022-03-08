@@ -2,6 +2,9 @@ export type Category = {
   name: string;
   description: string;
   weight: number;
+  currentIcon?: string;
+  iconColor?: string;
+  iconBgColor?: string;
 };
 
 export type Categories = Record<string, Category>;
