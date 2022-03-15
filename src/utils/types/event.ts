@@ -27,9 +27,8 @@ type PricedEvent<T, Timestamp> = BaseEvent<T, Timestamp> & {
   unit: 'ÖRE' | 'US_CENT' | 'EUR_CENT';
 };
 
-export declare type G_Events<Timestamp> = {
+export type G_Events<Timestamp> = {
   generic: BaseEvent<'generic', Timestamp>;
   course: PricedEvent<'course', Timestamp>;
 };
-export declare type G_Event<Timestamp> =
-  G_Events<Timestamp>[keyof G_Events<Timestamp>];
+export type G_Event<Timestamp> = G_Events<Timestamp>[keyof G_Events<Timestamp>];
