@@ -2,16 +2,10 @@ type InterpreterJob<T, Timestamp> = {
   type: T;
   title: string;
   jobId: string;
-} & (
-  | {
-      start: Timestamp;
-      end: Timestamp;
-    }
-  | {
-      start: Timestamp | null;
-      end: Timestamp | null;
-    }
-);
+} & {
+  start: Timestamp;
+  end: Timestamp;
+};
 
 type TranslatorJob<T, Timestamp> = {
   type: T;
