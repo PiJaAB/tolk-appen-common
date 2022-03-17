@@ -1,20 +1,22 @@
-type InterpreterJob<T, Timestamp> = {
-  type: T;
+export declare interface BaseJob {
   title: string;
-  jobId: string;
+}
+export declare interface G_InterpreterJob<Timestamp> extends BaseJob {
+  type: 'interpreter';
   start: Timestamp;
   end: Timestamp;
-};
-
-type TranslatorJob<T, Timestamp> = {
-  type: T;
-  title: string;
+}
+export declare interface G_TranslatorJob<Timestamp> extends BaseJob {
+  type: 'translator';
   deadLineDate: Timestamp;
-  jobId: string;
+}
+
+export declare type G_Jobs<Timestamp> = {
+  interpreter: G_InterpreterJob<Timestamp>;
+  translator: G_TranslatorJob<Timestamp>;
 };
 
-export type G_Jobs<Timestamp> = {
-  interpreter: InterpreterJob<'interpreter', Timestamp>;
-  translator: TranslatorJob<'translator', Timestamp>;
-};
-export type G_Job<Timestamp> = G_Jobs<Timestamp>[keyof G_Jobs<Timestamp>];
+export declare type JobTypes = keyof G_Jobs<never>;
+
+export declare type G_Job<Timestamp> = G_Jobs<Timestamp>[JobTypes];
+export {};
