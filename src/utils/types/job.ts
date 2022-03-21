@@ -8,7 +8,7 @@ export declare interface G_InterpreterJob<Timestamp> extends BaseJob {
 }
 export declare interface G_TranslatorJob<Timestamp> extends BaseJob {
   type: 'translator';
-  deadLine: Timestamp;
+  deadline: Timestamp;
 }
 
 export declare type G_Jobs<Timestamp> = {
