@@ -4,15 +4,15 @@ export interface BaseAssignmentDetail {
 }
 export interface BaseJob {
   title: string;
-  asssignmentDetail: readonly BaseAssignmentDetail[];
+  asssignmentDetails: BaseAssignmentDetail;
 }
 
 export interface InterpreterAssignmentDetail extends BaseAssignmentDetail {
-  creator: string;
+  administrator: string;
   customer: string;
 }
 export interface BaseJobInterpreter extends BaseJob {
-  asssignmentDetail: readonly InterpreterAssignmentDetail[];
+  asssignmentDetails: InterpreterAssignmentDetail;
 }
 export interface G_InterpreterJob<Timestamp> extends BaseJobInterpreter {
   type: 'interpreter';
