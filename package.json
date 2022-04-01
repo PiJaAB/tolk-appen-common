@@ -1,6 +1,6 @@
 {
   "name": "tolk-appen-common",
-  "version": "1.7.15",
+  "version": "1.7.16",
   "private": true,
   "main": "dist/index.js",
   "license": "UNLICENSED",
