@@ -1,3 +1,5 @@
+export type JobType = 'interpreter' | 'translator';
+export type InterpreterCategory = 'Video' | 'Phone' | 'InSitu';
 export interface JobAddress {
   name?: string;
   streetAddress: string;
@@ -11,23 +13,25 @@ export interface BaseAssignmentDetail {
 }
 export interface BaseJob {
   title: string;
-  assignmentDetails: BaseAssignmentDetail;
+  assignmentDetails?: BaseAssignmentDetail;
+  type: JobType;
+  notes?: string;
 }
 export interface InterpreterAssignmentDetail extends BaseAssignmentDetail {
   administrator: string;
   customer: string;
 }
 export interface BaseJobInterpreter extends BaseJob {
-  assignmentDetails: InterpreterAssignmentDetail;
+  assignmentDetails?: InterpreterAssignmentDetail;
 }
 export interface G_InterpreterJob<Timestamp> extends BaseJobInterpreter {
   type: 'interpreter';
   start: Timestamp;
   end: Timestamp;
+  category: InterpreterCategory;
+  phoneNumber?: string;
+  videoLink?: string;
   jobAddress?: JobAddress;
-  online: boolean;
-  onlineLink?: string;
-  category: 'Video' | 'Phone' | 'InSitu';
   languages: string[];
 }
 export interface G_TranslatorJob<Timestamp> extends BaseJob {
