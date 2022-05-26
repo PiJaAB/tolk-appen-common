@@ -1,30 +1,45 @@
 export type JobType = 'interpreter' | 'translator';
 export type InterpreterCategory = 'Video' | 'Phone' | 'InSitu';
+
 export interface JobAddress {
   name?: string;
-  streetAddress: string;
-  city: string;
-  country: string;
+  streetAddress?: string;
+  city?: string;
+  country?: string;
 }
 
 export interface BaseAssignmentDetail {
   mediator: string;
   assignmentNumber: string;
+  customer: string;
 }
-export interface BaseJob {
+
+export interface G_RequisitionDetails<Timestamp> {
+  isRequisitionable: boolean;
+  approvedAt?: Timestamp;
+  emailTo?: string[];
+  allowance?: bigint;
+  start: Timestamp;
+  end: Timestamp;
+  overtimeMinutes?: number;
+  timeWasteMinutes?: number;
+}
+export interface BaseJob<Timestamp> {
   title: string;
   assignmentDetails?: BaseAssignmentDetail;
   type: JobType;
   notes?: string;
+  submissionEmails?: string[];
+  submittedAt?: Timestamp;
 }
 export interface InterpreterAssignmentDetail extends BaseAssignmentDetail {
   administrator: string;
-  customer: string;
 }
-export interface BaseJobInterpreter extends BaseJob {
+export interface BaseJobInterpreter<Timestamp> extends BaseJob<Timestamp> {
   assignmentDetails?: InterpreterAssignmentDetail;
 }
-export interface G_InterpreterJob<Timestamp> extends BaseJobInterpreter {
+export interface G_InterpreterJob<Timestamp>
+  extends BaseJobInterpreter<Timestamp> {
   type: 'interpreter';
   start: Timestamp;
   end: Timestamp;
@@ -32,9 +47,10 @@ export interface G_InterpreterJob<Timestamp> extends BaseJobInterpreter {
   phoneNumber?: string;
   videoLink?: string;
   jobAddress?: JobAddress;
-  languages: string[];
+  languages?: string[];
+  requisitionDetails?: G_RequisitionDetails<Timestamp>;
 }
-export interface G_TranslatorJob<Timestamp> extends BaseJob {
+export interface G_TranslatorJob<Timestamp> extends BaseJob<Timestamp> {
   type: 'translator';
   deadline: Timestamp;
 }
