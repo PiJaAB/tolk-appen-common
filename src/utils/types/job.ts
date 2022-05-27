@@ -17,6 +17,10 @@ export interface BaseAssignmentDetail {
 export interface G_RequisitionDetails<Timestamp> {
   isRequisitionable: boolean;
   approvedAt?: Timestamp;
+  approveBy?: {
+    name: string;
+    email: string;
+  };
   emailTo?: string[];
   allowance?: bigint;
   start?: Timestamp;
