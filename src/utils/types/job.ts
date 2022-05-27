@@ -19,8 +19,8 @@ export interface G_RequisitionDetails<Timestamp> {
   approvedAt?: Timestamp;
   emailTo?: string[];
   allowance?: bigint;
-  start: Timestamp;
-  end: Timestamp;
+  start?: Timestamp;
+  end?: Timestamp;
   overtimeMinutes?: number;
   timeWasteMinutes?: number;
 }
