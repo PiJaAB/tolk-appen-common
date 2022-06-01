@@ -5,9 +5,10 @@ export interface PublicUser {
   username?: string;
   role?: string;
   private?: never;
+  settings?: never;
 }
 
-export interface PrivateUser extends Omit<PublicUser, 'private'> {
+export interface PrivateUser extends Omit<PublicUser, 'private' | 'settings'> {
   private: {
     email?: string;
     emailVerified: boolean;
@@ -18,6 +19,8 @@ export interface PrivateUser extends Omit<PublicUser, 'private'> {
     deviceTokens?: string[];
     subscribedTopics?: string[];
     notificationKey?: string | null;
+  };
+  settings?: {
     interpreterNumber?: string;
     onboardingCompleted?: boolean;
     requisitionOn?: boolean;
