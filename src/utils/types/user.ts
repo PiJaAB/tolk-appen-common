@@ -1,14 +1,10 @@
 export interface PublicUser {
-  interpreterNumber?: string;
   profilePictureHash?: string | null;
   name?: string;
   userLanguages?: string[];
-  userType?: string[];
   username?: string;
   role?: string;
   private?: never;
-  onboardingCompleted?: boolean;
-  requisitionOn?: boolean;
 }
 
 export interface PrivateUser extends Omit<PublicUser, 'private'> {
@@ -22,5 +18,9 @@ export interface PrivateUser extends Omit<PublicUser, 'private'> {
     deviceTokens?: string[];
     subscribedTopics?: string[];
     notificationKey?: string | null;
+    interpreterNumber?: string;
+    onboardingCompleted?: boolean;
+    requisitionOn?: boolean;
+    userType?: string[];
   };
 }
